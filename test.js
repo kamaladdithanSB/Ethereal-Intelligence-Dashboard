@@ -1,0 +1,1 @@
+const fs = require('fs'); const fetch = require('node-fetch'); const FormData = require('form-data'); (async () => { const form = new FormData(); form.append('file', fs.createReadStream('Mall_Customers.csv')); const res = await fetch('http://localhost:3000/api/ingest', { method: 'POST', body: form }); console.log(res.status, await res.text()); })();
